@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Music - Home Page</title>
 </head>
+
 <body>
+    <h3> Album List</h3>
     {% if all_album %}
         <ul>
             {% for album in all_album %}
-                <li><a href="{{ album.id }}/"> {{ album.title }} </a> </li>
+{#                <li><a href="{{ album.id }}/"> {{ album.title }} </a> </li>#}
+                <li><a href="{%  url 'music:display_album' album.id %}"> {{ album.title }} </a> </li>
             {% endfor %}
         </ul>
     {% else %}
         <h3> Library is empty </h3>
     {% endif %}
 </body>
+
 </html>
