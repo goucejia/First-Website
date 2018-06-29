@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=250)),
                 ('genre', models.CharField(max_length=100)),
                 ('album_logo', models.CharField(max_length=500)),
-                ('is_favorite', models.BooleanField(default=False)),
+                # ('is_favorite', models.BooleanField(default=False)),
             ],
         ),
         migrations.CreateModel(
