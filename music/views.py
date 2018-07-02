@@ -4,9 +4,7 @@ from django.http import HttpResponse
 from .models import Album, Song
 from django.http import Http404
 
-# Create your views her
-#
-# e.
+# Create your views here.
 
 def index(request) :
     all_album = Album.objects.all()
@@ -31,7 +29,7 @@ def detail(request, album_id) :
 
 
 def favorite(request, album_id):
-    album = get_object_or_404(Album, pk=album_id)
+    album = get_object_or_404(Album, pk = album_id)
     try:
         selected_song = album.song_set.get(pk=request.POST["song"])
     except(KeyError, Song.DoesNotExist):
@@ -40,6 +38,25 @@ def favorite(request, album_id):
             "error_msg" : "Song not valid",
         }
     else:
+        # if selected_song:
+        #     selected_song.is_favorite = False
+        #     selected_song.save()
+        # else:
         selected_song.is_favorite = True
         selected_song.save()
         return render(request, 'music/detail.html', {'album': album})
+
+# def unfavorite(request, album_id) :
+#     album = get_object_or_404(Album, pk = album_id)
+#     album = get_object_or_404(Album, pk=album_id)
+#     try:
+#         selected_song = album.song_set.get(pk=request.POST["song"])
+#     except(KeyError, Song.DoesNotExist):
+#         return (request, 'music/detail.html'), {
+#             'album': album,
+#             "error_msg": "Song not valid",
+#         }
+#     else:
+#         selected_song.is_favorite = False
+#         selected_song.save()
+#         return render(request, 'music/detail.html', {'album': album})

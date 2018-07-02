@@ -14,5 +14,7 @@ urlpatterns = [
     # http://127.0.0.1:8000/music/<album_id>/favorite
     url(r'^(?P<album_id>[0-9]+)/favorite$', views.favorite, name = "favorite"),
 
+    # # http://127.0.0.1:8000/music/<album_id>/unfavorite
+    # url(r'^(?P<album_id>[0-9]+)/unfavorite$', views.unfavorite, name = "unfavorite"),
 
 ]
