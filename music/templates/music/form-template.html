@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details - Template</title>
+</head>
+<body>
+    {% for fields in form %}
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <span class="text-danger small"> {{ field.errors }} </span>
+            </div>
+        </div>
+
+        <label class="control-lable col-sm"> {{ field.label_tag }}</label>
+        <div class="col-sm-10"> {{ field }} </div>
+    {% endfor %}
+</body>
+</html>
